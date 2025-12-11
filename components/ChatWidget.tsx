@@ -82,7 +82,7 @@ export default function ChatWidget() {
       {/* Floating avatar button with tooltip bubble */}
       <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
         {!open && (
-          <div className="bg-white text-slate-800 text-sm px-3 py-2 rounded-lg shadow-lg max-w-[180px] animate-pulse">
+          <div className="hidden sm:block bg-white text-slate-800 text-sm px-3 py-2 rounded-lg shadow-lg max-w-[180px] animate-pulse">
             <span>Ask Ismail about his experience 💬</span>
             <div className="absolute -right-2 bottom-4 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white"></div>
           </div>
@@ -90,7 +90,7 @@ export default function ChatWidget() {
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="w-16 h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
           aria-label="Open chat with Hero"
         >
           <img
@@ -101,12 +101,12 @@ export default function ChatWidget() {
         </button>
       </div>
 
-      {/* Chat window */}
+      {/* Chat window - Full screen on mobile, fixed size on desktop */}
       {open && (
-        <div className="fixed bottom-20 right-4 z-50 w-80 max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl rounded-xl border border-slate-700 flex flex-col">
+        <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-50 w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
           {/* Header */}
-          <div className="p-3 border-b border-slate-700 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-darkGreen flex-shrink-0">
+          <div className="p-3 sm:p-3 border-b border-slate-700 flex items-center gap-3 safe-area-top">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-darkGreen flex-shrink-0">
               <img
                 src="/images/ismail.jpeg"
                 alt="Ismail Ahouari"
@@ -121,17 +121,17 @@ export default function ChatWidget() {
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="ml-auto text-slate-400 hover:text-white transition-colors"
+              className="ml-auto text-slate-400 hover:text-white transition-colors p-2"
               aria-label="Close chat"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 text-sm space-y-3 min-h-[200px] max-h-[300px]">
+          <div className="flex-1 overflow-y-auto p-3 text-sm space-y-3 min-h-[200px] sm:max-h-[300px]">
             {messages.length === 0 && (
               <div className="text-xs text-slate-400 bg-slate-900 rounded-lg p-3">
                 👋 Hi, I&apos;m Hero in AI form! I&apos;m Ismail Ahouari&apos;s digital twin. Ask me about my background, thesis research on Split Learning, or current projects in agentic LLM infrastructure.
@@ -171,10 +171,10 @@ export default function ChatWidget() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="p-3 border-t border-slate-700 flex gap-2">
+          {/* Input - Larger touch targets on mobile */}
+          <div className="p-3 sm:p-3 border-t border-slate-700 flex gap-2 safe-area-bottom">
             <input
-              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm outline-none focus:border-darkGreen transition-colors"
+              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 sm:px-3 sm:py-2 text-base sm:text-sm outline-none focus:border-darkGreen transition-colors"
               placeholder="Ask me something..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -184,7 +184,7 @@ export default function ChatWidget() {
             <button
               onClick={sendMessage}
               disabled={loading || !input.trim()}
-              className="px-4 py-2 text-sm bg-darkGreen text-white rounded-lg hover:bg-lightGreen transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-5 py-3 sm:px-4 sm:py-2 text-base sm:text-sm bg-darkGreen text-white rounded-lg hover:bg-lightGreen transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Send
             </button>
