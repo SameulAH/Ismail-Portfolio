@@ -121,9 +121,13 @@ export default function ChatWidget() {
 
       {/* Chat window - Full screen on mobile, fixed size on desktop */}
       {open && (
-        <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-[9998] w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
-          {/* Header */}
-          <div className="p-4 sm:p-3 border-b border-slate-700 flex items-center gap-3 safe-area-top">
+        <>
+          {/* Mobile backdrop overlay */}
+          <div className="fixed inset-0 bg-white sm:hidden z-[9997]" />
+          
+          <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-[9998] w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
+            {/* Header */}
+            <div className="p-4 sm:p-3 border-b border-slate-700 flex items-center gap-3 safe-area-top">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-darkGreen flex-shrink-0">
               <img
                 src="/images/ismail.jpeg"
@@ -208,6 +212,7 @@ export default function ChatWidget() {
             </button>
           </div>
         </div>
+        </>
       )}
     </>
   );
