@@ -79,33 +79,51 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Floating avatar button with tooltip bubble */}
-      <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
-        {!open && (
+      {/* Floating avatar button with tooltip bubble - hide on mobile when chat is open */}
+      {!open && (
+        <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
           <div className="hidden sm:block bg-white text-slate-800 text-sm px-3 py-2 rounded-lg shadow-lg max-w-[180px] animate-pulse">
             <span>Ask Ismail about his experience 💬</span>
             <div className="absolute -right-2 bottom-4 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white"></div>
           </div>
-        )}
-        <button
-          type="button"
-          onClick={() => setOpen((prev) => !prev)}
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
-          aria-label="Open chat with Hero"
-        >
-          <img
-            src="/images/ismail.jpeg"
-            alt="Ismail Ahouari"
-            className="object-cover object-top w-full h-full"
-          />
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+            aria-label="Open chat with Hero"
+          >
+            <img
+              src="/images/ismail.jpeg"
+              alt="Ismail Ahouari"
+              className="object-cover object-top w-full h-full"
+            />
+          </button>
+        </div>
+      )}
+
+      {/* Desktop floating button when chat is open */}
+      {open && (
+        <div className="hidden sm:block fixed bottom-4 right-4 z-50">
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="w-16 h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+            aria-label="Close chat"
+          >
+            <img
+              src="/images/ismail.jpeg"
+              alt="Ismail Ahouari"
+              className="object-cover object-top w-full h-full"
+            />
+          </button>
+        </div>
+      )}
 
       {/* Chat window - Full screen on mobile, fixed size on desktop */}
       {open && (
-        <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-50 w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
+        <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-[100] w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
           {/* Header */}
-          <div className="p-3 sm:p-3 border-b border-slate-700 flex items-center gap-3 safe-area-top">
+          <div className="p-4 sm:p-3 border-b border-slate-700 flex items-center gap-3">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-darkGreen flex-shrink-0">
               <img
                 src="/images/ismail.jpeg"
@@ -172,7 +190,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Input - Larger touch targets on mobile */}
-          <div className="p-3 sm:p-3 border-t border-slate-700 flex gap-2 safe-area-bottom">
+          <div className="p-4 pb-6 sm:p-3 border-t border-slate-700 flex gap-2">
             <input
               className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 sm:px-3 sm:py-2 text-base sm:text-sm outline-none focus:border-darkGreen transition-colors"
               placeholder="Ask me something..."
