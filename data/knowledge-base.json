@@ -27,7 +27,7 @@
   {
     "id": "experience-1",
     "category": "experience",
-    "content": "I worked as an AI/Data Science Intern at LISER (Luxembourg Institute of Socio-Economic Research) starting in 2024. I worked on large language models and applied data science methods to socio-economic datasets. I developed NLP pipelines for analyzing research publications and policy documents, and implemented machine learning models for predictive analytics on demographic data."
+    "content": "I worked as a Data Science Associate at LISER (Luxembourg Institute of Socio-Economic Research) from January to April 2025. I developed advanced NLP pipelines for multi-source document ingestion (PDFs, DOCXs, CSVs) with intelligent preprocessing and automated metadata extraction using Python. I built scalable sentence-transformer embedding workflows, optimizing vector representations for downstream semantic similarity and clustering tasks. I implemented a custom multi-stage entity recognition system combining rule-based (spaCy, Stanza) and neural approaches for domain-specific terminology extraction. I designed efficient web scraping infrastructure using BeautifulSoup for large-scale data collection with rate limiting, caching, and incremental update strategies. I created modular preprocessing APIs that standardized data cleaning, tokenization, and feature extraction across heterogeneous text corpora. Technologies: Python, Sentence-Transformers, spaCy, Stanza, BeautifulSoup."
   },
   {
     "id": "experience-2",
