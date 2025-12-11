@@ -2,7 +2,7 @@
   {
     "id": "bio-1",
     "category": "background",
-    "content": "I am Ismail Ahouari, a Data Science graduate specialized in distributed learning, image processing, and building agentic LLM infrastructure. I'm passionate about making machine learning more accessible and efficient through innovative distributed approaches."
+    "content": "I am Ismail Ahouari, a Master's student in Data Science at the University of Milano-Bicocca, based in Milan, Italy. I have a strong technical foundation in applied mathematics, deep learning, and large-scale data processing. My work spans distributed learning, NLP, and LLM-based infrastructures, with a focus on building scalable, production-ready AI systems that integrate machine learning with robust backend and MLOps components."
   },
   {
     "id": "thesis-1",
@@ -17,12 +17,27 @@
   {
     "id": "project-1",
     "category": "projects",
-    "content": "I designed an Agentic LLM Infrastructure with MCP Tools - a multi-tenant agentic runtime with tool orchestration using Cloudflare Durable Objects and Supabase with Row-Level Security. This system enables deploying AI agents with proper isolation and security controls for multiple users."
+    "content": "I designed an Agentic LLM Infrastructure with MCP Tools - a multi-tenant agentic runtime with tool orchestration using Cloudflare Durable Objects and Supabase with Row-Level Security. I architected a scalable LLM orchestration system spanning client services, Cloudflare Workers, Durable Objects, ReAct agents, MCP tools, and Supabase. I engineered a Durable Object-based session layer providing persistent memory, routing context, and tenant-level isolation. I implemented real-time LLM inference streaming using SSE with structured event parsing and incremental token delivery."
   },
   {
     "id": "project-2",
     "category": "projects",
-    "content": "I developed Label-Noise Robust Food Image Classification models for real-world images using CNNs and robust training strategies. This project addressed the challenge of learning from noisy labels commonly found in crowd-sourced datasets, using techniques like confident learning and noise-aware loss functions."
+    "content": "Image and Signal Processing projects: I trained CNNs with ResNet50 and Inception using data augmentation, achieving high accuracy on 51 food classes (Food-101). I built a face retrieval system using MobileNetV2 and KD-Tree for fast, accurate similarity search via deep facial embeddings. I developed SVM and CNN models using MFCCs, Spectrograms, and Chroma features for robust music genre classification."
+  },
+  {
+    "id": "project-3",
+    "category": "projects",
+    "content": "RAG-Based Conversational AI System: I built an intelligent document chatbot using Retrieval-Augmented Generation (RAG) architecture enabling document upload and natural language querying. I developed an end-to-end pipeline with FastAPI backend, LLaMA3 LLM, Sentence Transformers embeddings, and ChromaDB vector storage. I implemented microservices architecture with async processing, session management, RESTful APIs with Pydantic validation, and Streamlit frontend for user interaction."
+  },
+  {
+    "id": "project-4",
+    "category": "projects",
+    "content": "MLOps Pipeline Project (MLOps Zoomcamp): I built a full MLOps pipeline covering data ingestion, preprocessing, model training, deployment, and monitoring. I deployed containerized ML models on AWS (EC2, S3) for scalable real-time inference. I implemented MLflow for experiment tracking and model versioning. I automated workflows and CI/CD pipelines for continuous retraining and deployment. I integrated Docker and monitoring systems for reliability and drift detection."
+  },
+  {
+    "id": "project-5",
+    "category": "projects",
+    "content": "Data Management & Visualization (Spotify Project): I conducted a data management project analyzing Spotify music trends by collecting track metadata via the Spotify API and scraping song lyrics from external sources. I performed data cleaning, matching, and preprocessing to align song attributes with lyrical content. I applied TF-IDF to extract key lyrical themes and uncovered patterns related to artist popularity and evolving music trends. I built a Neo4j graph database to model relationships between songs, artists, and themes, enabling network-based exploration of musical trends."
   },
   {
     "id": "experience-1",
@@ -32,22 +47,32 @@
   {
     "id": "experience-2",
     "category": "experience",
-    "content": "I was a Data Science Intern at C2DH (University of Luxembourg) from June to December 2023. I applied machine learning techniques to healthcare data in a clinical research context, developed image classification models for medical imaging analysis, and collaborated with medical professionals to interpret and validate model outputs."
+    "content": "I was a Data Science Intern at C2DH (Centre for Contemporary and Digital History, University of Luxembourg) from June to December 2024. I implemented a Wikibase-based knowledge graph using Docker containers for isolated, reproducible environments. I automated data ingestion pipelines using Python and the Wikibase API to process structured records with semantic annotations. I developed a modular relational data model managing RDF triples across 19 reusable properties. I created a multilingual support system with automated translation capabilities for Luxembourgish accessibility. I established data reconciliation workflows using OpenRefine for cross-platform entity linking and enabled a SPARQL query interface for complex historical research queries and data visualization. Technologies: Python, Docker, SPARQL, Wikibase, OpenRefine."
   },
   {
     "id": "skills-1",
     "category": "skills",
-    "content": "My primary programming language is Python with 95% proficiency. I'm highly skilled in PyTorch (90%) for deep learning, and LangChain/LangGraph (85%) for building LLM applications. I also work with Next.js and React (80%) for web development, TypeScript (75%), and have experience with Cloudflare Workers (70%) and Supabase (75%) for backend infrastructure."
+    "content": "My primary programming language is Python with 95% proficiency. I'm highly skilled in PyTorch (90%) for deep learning, and LangChain/LangGraph (85%) for building LLM applications. I also work with FastAPI (85%) for backend APIs, Docker (85%) for containerization, and have experience with Cloudflare Workers and Supabase for cloud-native tooling."
   },
   {
     "id": "skills-2",
     "category": "skills",
-    "content": "I have expertise in distributed machine learning, specifically Split Learning and Federated Learning. I understand the trade-offs between privacy, communication costs, and model accuracy. I also have experience with vLLM for efficient LLM inference and MLOps fundamentals for deploying ML systems."
+    "content": "I have expertise in distributed machine learning, specifically Split Learning and Federated Learning. I understand the trade-offs between privacy, communication costs, and model accuracy. I also have experience with MLflow for experiment tracking, Apache Spark for big data, and full MLOps pipelines for deploying ML systems on AWS."
+  },
+  {
+    "id": "education-1",
+    "category": "education",
+    "content": "I am pursuing a Master's Degree in Data Science at the University of Milano-Bicocca in Milan, Italy (January 2023 - October 2025). My thesis is titled 'Implementation and Benchmarking of Split Learning for Scalable and Efficient Distributed Deep Learning' (SLPerf)."
+  },
+  {
+    "id": "education-2",
+    "category": "education",
+    "content": "I hold a Diploma in Web Technologies from EWA School, Agadir, Morocco (February 2020 - December 2021), and a Bachelor's Degree in Applied Mathematics from the University of Ibn Zohr, Agadir, Morocco (August 2016 - November 2020)."
   },
   {
     "id": "contact-1",
     "category": "contact",
-    "content": "I am based in Luxembourg/Belgium. You can reach me via email or connect with me on LinkedIn and GitHub. I'm open to discussing AI/ML projects, research collaborations, or job opportunities in the field of data science and AI engineering."
+    "content": "I am based in Milan, Italy. You can reach me via email at ismailahouari123@gmail.com. Connect with me on LinkedIn (linkedin.com/ismailahouari) and GitHub (github.com/SameulAH). I'm open to discussing AI/ML projects, research collaborations, or job opportunities in the field of data science and AI engineering."
   },
   {
     "id": "cv_chunk_1765333173264_0",
@@ -113,5 +138,45 @@
     "id": "cv_chunk_1765333173264_12",
     "category": "cv_content",
     "content": "o Built ReAct-driven agent orchestration with structured reasoning loops and optimized tool-selection logic, improving decision quality and reducing ambiguity across automated workflows. o Implemented dynamic MCP tool integration, including discovery, schema-based registration, and managed invocation paths, enabling extensible integration with external APIs and domain-specific services."
+  },
+  {
+    "id": "github-1",
+    "category": "github",
+    "content": "My GitHub profile is github.com/SameulAH. I have 30 public repositories covering data science, machine learning, NLP, MLOps, and distributed learning. My main projects include: rag-chatbot (RAG-based conversational AI with FastAPI, LLaMA3, ChromaDB), SLPerf (Split Learning benchmarking framework), MLops (MLOps Zoomcamp coursework), Data-Management (Spotify music analysis with Neo4j), and Digital-Image-and-Signal-Processing-Projects (face retrieval, food classification, music genre classification)."
+  },
+  {
+    "id": "github-2",
+    "category": "github",
+    "content": "RAG-Chatbot repository (github.com/SameulAH/rag-chatbot): AI-powered chatbot with document ingestion, vector embeddings using all-mpnet-base-v2, ChromaDB storage, and LLaMA3 LLM. Built with FastAPI backend and Streamlit frontend. Features conversation ID tracking, session management, and multi-turn conversation support."
+  },
+  {
+    "id": "github-3",
+    "category": "github",
+    "content": "SLPerf repository (github.com/SameulAH/SLPerf): Split Learning Performance benchmarking framework. Supports Vanilla SL, U-Shaped SL, SplitFed, and asynchronous variants. Uses MPI for distributed communication. Datasets include MNIST, CIFAR-10, FashionMNIST, CheXpert. Models include LeNet, ResNet, DenseNet, EfficientNet."
+  },
+  {
+    "id": "github-4",
+    "category": "github",
+    "content": "Digital-Image-and-Signal-Processing-Projects repository (github.com/SameulAH/Digital-Image-and-Signal-Processing-Projects): Three main projects - Face Retrieval using MobileNetV2 and KD-Tree for similarity search, Food-101 Classification using ResNet50 and Inception for 51 food classes, and Music Genre Classification using SVM and CNN with MFCCs, Spectrograms, and Chroma features."
+  },
+  {
+    "id": "github-5",
+    "category": "github",
+    "content": "Data-Management repository (github.com/SameulAH/Data-Management): Spotify music trends analysis (2010-2022). Used Spotify API for track metadata and web scraping for lyrics from Vagalume and Letras. Applied TF-IDF for keyword extraction, built Neo4j graph database for network-based exploration. Includes data cleaning, EDA, correlation analysis, and word cloud visualization."
+  },
+  {
+    "id": "github-6",
+    "category": "github",
+    "content": "MLops repository (github.com/SameulAH/MLops): MLOps Zoomcamp complete coursework covering Module 1 (Introduction), Module 2 (Experiment Tracking with MLflow), Module 3 (Orchestration and ML Pipelines), Module 4 (Deployment), Module 5 (Monitoring), and Capstone Project. Languages: Python 94.7%, HTML 3.3%, Jupyter Notebook 1.8%."
+  },
+  {
+    "id": "github-7",
+    "category": "github",
+    "content": "Other GitHub repositories: LLMops (LLMops Zoomcamp), dataingestion (Wikibase data ingestion using Wikimedia API - related to C2DH work), Brain-MRI-Segmentation, Text-Mining-and-Research, ImageProcessing (DSP course assignments), Marketing-Analytics, Streaming-Data-Time-Series, Airflw_dateng_stack (Airflow data engineering stack)."
+  },
+  {
+    "id": "github-8",
+    "category": "github",
+    "content": "Technologies I use across my GitHub projects: Python, PyTorch, TensorFlow, FastAPI, Docker, Streamlit, ChromaDB, Neo4j, MLflow, MPI, Jupyter Notebooks, Sentence Transformers, LLaMA3, Airflow, and various data science libraries (pandas, numpy, scikit-learn, matplotlib)."
   }
 ]
