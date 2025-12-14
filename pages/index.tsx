@@ -10,7 +10,8 @@ import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/solid";
-import ChatWidget from "../components/ChatWidget";
+import dynamic from "next/dynamic";
+const ChatWidget = dynamic(() => import("../components/ChatWidget"), { ssr: false, loading: () => <div>Loading chat...</div> });
 
 type Props = {
   pageInfo: PageInfo;

@@ -10,17 +10,17 @@ export default function Projects({ projects }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className=" h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
+      className=" h-screen relative flex overflow-hidden flex-col text-center md:text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-20 md:top-24 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
-        Projects
+      <h3 className="absolute top-36 md:top-24 uppercase tracking-[0.25em] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-[20px] font-medium md:font-normal">
+          Projects
       </h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-darkGreen/80">
         {projects?.map((project, i) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-44 h-screen"
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 md:space-y-5 items-center justify-center p-4 pt-24 md:p-44 h-screen"
           >
             <motion.img
               initial={{ y: -100, opacity: 0 }}
@@ -39,15 +39,45 @@ export default function Projects({ projects }: Props) {
                 </span>{" "}
                 {project?.title}
               </h4>
-              <div className="flex items-center space-x-2 justify-center ">
-                {project?.technologies?.map((technology) => (
-                  <img
-                    key={technology._id}
-                    className="h-10 w-10 rounded-full object-cover"
-                    src={technology?.image}
-                    alt={technology?.title}
-                  />
-                ))}
+              <div className="flex items-center space-x-2 justify-center flex-wrap gap-2">
+                {project?.technologies?.map((technology, idx) => {
+                  if (technology.title?.toLowerCase().includes("mpi")) return null;
+                  // For the Split Learning thesis project, render PyTorch + MPI together
+                  if (project.title?.toLowerCase().includes('split learning') || project.title?.toLowerCase().includes('slperf')) {
+                    const titleLower = technology.title.toLowerCase();
+                    const isPyTorch = titleLower.includes('pytorch');
+                    const isMPI = titleLower.includes('mpi');
+
+                    // Skip rendering MPI here; we'll render it together with PyTorch so it appears only once
+                    if (isMPI) return null;
+
+                    if (isPyTorch) {
+                      return [
+                        <img
+                          key={technology._id}
+                          className="h-8 w-8 rounded-full object-cover"
+                          src={technology?.image}
+                          alt={technology?.title}
+                        />,
+                        <img
+                          key="slperf-extra"
+                          className="h-8 w-8 rounded-full object-cover"
+                          src="/images/slperf-extra.png"
+                          alt="SLPerf Extra"
+                        />
+                      ].filter(Boolean);
+                    }
+                  }
+                  // Default rendering for all other icons
+                  return technology?.image ? (
+                    <img
+                      key={technology._id}
+                      className="h-8 w-8 rounded-full object-cover"
+                      src={technology?.image}
+                      alt={technology?.title}
+                    />
+                  ) : null;
+                })}
               </div>
 
               <p className="text-sm md:text-md lg:text-lg text-justify ">
@@ -58,7 +88,7 @@ export default function Projects({ projects }: Props) {
         ))}
       </div>
 
-      <div className="w-full absolute top-[20%] md:top-[30%] bg-darkGreen/40 left-0 h-[500px] -skew-y-12"></div>
+      <div className="w-full absolute top-[30%] md:top-[30%] bg-darkGreen/40 left-0 h-[500px] -skew-y-12"></div>
     </motion.div>
   );
 }
