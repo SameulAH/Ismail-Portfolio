@@ -45,7 +45,7 @@ export default function ContactMe({}: Props) {
   };
 
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+    <div className="min-h-screen md:h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-6 md:px-10 justify-evenly mx-auto items-center">
       <h3 className="absolute top-36 md:top-24 uppercase tracking-[0.25em] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-[20px] font-medium md:font-normal">
           Contact
       </h3>
@@ -72,7 +72,7 @@ export default function ContactMe({}: Props) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-80 md:w-fit mx-auto"
+          className="flex flex-col space-y-2 w-full max-w-sm md:w-fit mx-auto"
         >
           <div className="md:flex md:space-x-2 space-y-2 md:space-y-0 ">
             <input
