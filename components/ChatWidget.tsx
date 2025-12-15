@@ -86,18 +86,29 @@ export default function ChatWidget() {
             <span>Ask Ismail about his experience 💬</span>
             <div className="absolute -right-2 bottom-4 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white"></div>
           </div>
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
-            aria-label="Open chat with Hero"
-          >
-            <img
-              src="/images/ismail.jpeg"
-              alt="Ismail Ahouari"
-              className="object-cover object-top w-full h-full"
-            />
-          </button>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+              aria-label="Open chat with Hero"
+            >
+              {/* Halo/indicator kept for mobile + desktop */}
+              <span
+                className="pointer-events-none absolute inset-0 scale-125 sm:scale-150 rounded-full bg-darkGreen/15 blur-lg sm:blur-xl"
+                aria-hidden="true"
+              />
+              <img
+                src="/images/ismail.jpeg"
+                alt="Ismail Ahouari"
+                className="object-cover object-top w-full h-full"
+              />
+            </button>
+            <div className="sm:hidden pointer-events-none absolute right-full top-1/2 -translate-y-1/2 mr-2 bg-white text-slate-700 text-[11px] px-2 py-[6px] rounded-full shadow-lg border border-slate-200 flex items-center gap-1 max-w-[160px] whitespace-nowrap">
+              <span className="w-2 h-2 rounded-full bg-lightGreen animate-pulse" aria-hidden="true"></span>
+              <span className="text-base leading-none" aria-hidden="true">💭</span>
+            </div>
+          </div>
         </div>
       )}
 
