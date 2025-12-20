@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getVectorStore, Document, SearchResult } from '../../lib/vectorStore';
+import { PushoverNotifier } from '../../lib/rag/pushNotifier';
 import knowledgeBaseData from '../../data/knowledge-base.json';
 
 type Role = 'user' | 'assistant' | 'system';
@@ -8,6 +9,36 @@ type Message = {
   role: Role;
   content: string;
 };
+
+const pushNotifier =
+  process.env.PUSHOVER_TOKEN && process.env.PUSHOVER_USER_KEY
+    ? new PushoverNotifier({
+        token: process.env.PUSHOVER_TOKEN,
+        userKey: process.env.PUSHOVER_USER_KEY,
+        logger: console,
+      })
+    : null;
+
+const PUSH_TITLE = 'New chatbot message';
+const PUSH_BODY_LIMIT = 200;
+
+function sendPushNotification(body: string) {
+  if (!pushNotifier || !body) return;
+
+  const truncated =
+    body.length > PUSH_BODY_LIMIT ? `${body.slice(0, PUSH_BODY_LIMIT)}...` : body;
+
+  // Fire-and-forget; do not block the chat response on notification delivery.
+  void pushNotifier
+    .sendNotification({
+      title: PUSH_TITLE,
+      body: truncated,
+      data: { receivedAt: new Date().toISOString() },
+    })
+    .catch((err: unknown) => {
+      console.warn('Pushover notification failed', err);
+    });
+}
 
 // Handle both formats: { documents: [...] } or [...]
 function getDocuments(): Document[] {
@@ -163,6 +194,8 @@ export default async function handler(
   try {
     const { messages } = req.body as { messages: Message[] };
     const lastUserMessage = messages.length > 0 ? messages[messages.length - 1].content : '';
+
+    sendPushNotification(lastUserMessage);
 
     // Build context-aware prompt using cosine similarity search + conversation memory
     const { prompt, hasContext } = buildPromptWithContext(lastUserMessage, messages);
