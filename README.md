@@ -196,7 +196,7 @@ curl "http://localhost:3000/api/knowledge?q=split+learning"
 
 ## Credits
 
-- Original template by [Mitchell Sparrow](https://github.com/MitchellSparrow/portfolioWebsite)
+
 - AI chat powered by [OpenRouter](https://openrouter.ai/)
 
 ## License
