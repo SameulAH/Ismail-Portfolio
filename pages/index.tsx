@@ -24,8 +24,7 @@ type Props = {
 const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <div
-      className="bg-lightBackground text-darkBlack min-h-screen sm:snap-none md:snap-y md:snap-mandatory
-    overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-darkGreen/80"
+      className="bg-gradient-to-br from-[#F8F8F8] via-white to-[#e8f1ef] text-slate-800 min-h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-darkGreen/80 selection:bg-lightGreen/30 selection:text-darkGreen"
     >
       <Head>
         <link
@@ -54,32 +53,32 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       <Header socials={socials} />
 
       {/* Hero */}
-      <section id="hero" className="snap-start">
+      <section id="hero">
         <Hero pageInfo={pageInfo} />
       </section>
 
       {/* About */}
-      <section id="about" className="snap-center">
+      <section id="about">
         <About pageInfo={pageInfo} />
       </section>
 
       {/* Experiences */}
-      <section id="experience" className="snap-center">
+      <section id="experience">
         <WorkExperience experiences={experiences} />
       </section>
 
       {/* Skills */}
-      <section id="skills" className="snap-start">
+      <section id="skills">
         <Skills skills={skills} />
       </section>
 
       {/* Projects */}
-      <section id="projects" className="snap-start">
+      <section id="projects">
         <Projects projects={projects} />
       </section>
 
       {/* Contact */}
-      <section id="contact" className="snap-start">
+      <section id="contact">
         <ContactMe />
       </section>
 

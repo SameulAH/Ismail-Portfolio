@@ -21,41 +21,43 @@ export default function ExperienceCard({ experience }: Props) {
   const logoSrc = experience?.companyImage?.trim() || "/images/placeholder.svg";
 
   return (
-    <article className="flex drop-shadow-xl flex-col rounded-3xl items-center space-y-0 flex-shrink-0 w-80 md:w-[600px] xl:w-[700px] snap-center bg-[#FFFFFF] bg-gradient-to-tr from-white to-darkGreen/20 p-5 md:p10 hover:opacity-100 opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden md:min-h-[540px]">
-      <motion.div
-        initial={{ opacity: 0, y: -100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2 }}
-        className="flex justify-center items-center mb-2"
-      >
-        <div className="h-24 w-24 md:h-28 md:w-28 xl:h-[150px] xl:w-[150px] rounded-full overflow-hidden shadow-md bg-white ring-2 ring-darkGreen/20">
-          <img
-            src={logoSrc}
-            alt={`${experience?.company} logo`}
-            className="h-full w-full object-contain p-3 bg-white rounded-full"
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "/images/placeholder.svg";
-            }}
-          />
-        </div>
-      </motion.div>
-      <div className="w-full px-0 md:px-10 flex-1 flex flex-col overflow-hidden">
-        <div className="md:flex md:justify-between items-center">
-          <div>
-            <h4 className="text-lg md:text-3xl font-light text-black">
+    <article className="flex flex-col rounded-3xl flex-shrink-0 w-[85vw] sm:w-[500px] md:w-[600px] xl:w-[700px] snap-center bg-white/40 backdrop-blur-lg border border-white/60 shadow-xl shadow-darkGreen/5 p-6 md:p-8 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/60 cursor-pointer transition-all duration-300 md:min-h-[450px]">
+      <div className="w-full flex flex-col items-start text-left space-y-4">
+        {/* Header Section: Logo + Titles */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 w-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="shrink-0"
+          >
+            <div className="h-16 w-16 md:h-20 md:w-20 xl:h-24 xl:w-24 rounded-full overflow-hidden shadow-md bg-white ring-2 ring-darkGreen/20">
+              <img
+                src={logoSrc}
+                alt={`${experience?.company} logo`}
+                className="h-full w-full object-contain p-2 bg-white rounded-full"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/placeholder.svg";
+                }}
+              />
+            </div>
+          </motion.div>
+
+          <div className="flex flex-col justify-center">
+            <h4 className="text-lg md:text-xl xl:text-2xl font-semibold text-slate-800 leading-tight">
               {experience?.jobTitle}
             </h4>
-            <p className="font-bold text-md md:text-2xl mt-1 text-lightGreen">
+            <p className="font-bold text-sm md:text-base xl:text-lg text-darkGreen mt-1 leading-tight">
               {experience?.company}
             </p>
-            <div className="flex flex-wrap gap-2 my-2">
+            <div className="flex flex-wrap gap-2 mt-3">
               {experience?.technologies?.map((technology) => (
                 <img
                   key={technology._id}
-                  className="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover"
+                  className="h-6 w-6 md:h-8 md:w-8 rounded-full object-cover shadow-sm"
                   src={technology?.image}
                   alt={technology?.title}
                 />
@@ -63,8 +65,10 @@ export default function ExperienceCard({ experience }: Props) {
             </div>
           </div>
         </div>
-        <div className="flex-1 overflow-y-auto pr-2 md:pr-4 scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-darkGreen/80">
-          <ul className="px-0 md:px-10 list-disc text-black space-y-2 text-justify ml-0 text-sm md:text-lg pl-5">
+
+        {/* Content Section: Bullet Points */}
+        <div className="w-full mt-4 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-darkGreen/80">
+          <ul className="list-disc text-slate-700 space-y-2 text-sm md:text-base leading-relaxed pl-5 marker:text-darkGreen/60 text-justify">
             {experience?.points.map((point, i) => (
               <li key={i}>{point.replace(/\s+/gu, " ").replace(/\u00A0/g, " ").trim()}</li>
             ))}

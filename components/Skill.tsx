@@ -11,12 +11,16 @@ export default function Skill({ skill, directionLeft }: Props) {
   return (
     <div className="group relative flex cursor-pointer">
       <motion.img
-        initial={{ x: directionLeft ? -80 : 80, opacity: 0 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{
+          x: directionLeft ? -80 : 80,
+          opacity: 0,
+        }}
         transition={{ duration: 1 }}
-        className="rounded-full border-2 border-darkGreen object-cover w-16 h-16 md:w-20 md:h-20 lg:w-20 lg:h-20 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 filter group-hover:grayscale transition duration-300 ease-in-out"
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         src={skill?.image}
         alt={skill?.title}
+        className="rounded-full border border-gray-200 object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 xl:w-28 xl:h-28 filter group-hover:grayscale transition-all duration-300 group-hover:scale-110 shadow-sm group-hover:shadow-lg bg-white p-2"
       />
     </div>
   );

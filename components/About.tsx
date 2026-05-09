@@ -11,13 +11,14 @@ export default function About({ pageInfo }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="flex flex-col relative min-h-screen md:h-screen text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-6 md:px-10 justify-evenly mx-auto items-center"
+      className="flex flex-col relative py-10 md:py-16 text-center md:text-left max-w-7xl px-4 sm:px-6 md:px-10 mx-auto items-center"
     >
-      <h3 className="absolute top-28 md:top-24 uppercase tracking-[0.25em] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-[20px] font-medium md:font-normal">
-          About
+      <h3 className="mb-6 md:mb-8 uppercase tracking-[0.25em] md:tracking-[20px] bg-clip-text text-transparent bg-gradient-to-r from-darkGreen to-lightGreen text-xl md:text-2xl font-bold text-center w-full">
+        About
       </h3>
 
-      <motion.div
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center w-full max-w-6xl mx-auto gap-8 md:gap-16">
+        <motion.div
         initial={{
           x: -200,
           opacity: 0,
@@ -37,18 +38,19 @@ export default function About({ pageInfo }: Props) {
           width={400}
           height={480}
           loading="lazy"
-          className="-mb-12 sm:-mb-16 md:mb-0 mt-8 md:mt-0 flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-80 xl:w-[400px] xl:h-[480px] rounded-full md:rounded-xl object-cover object-top shadow-xl ring-2 ring-darkGreen/20"
+          className="mb-8 md:mb-0 mt-8 md:mt-0 flex-shrink-0 w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-80 xl:w-[400px] xl:h-[480px] rounded-2xl object-cover object-top shadow-2xl bg-white/50 backdrop-blur-sm"
         />
       </motion.div>
-      <div className="space-y-6 md:space-y-8 px-0 md:px-10 max-w-xl">
+      <div className="space-y-6 md:space-y-8 px-0 md:px-4 max-w-2xl flex-1 text-center md:text-left">
         <h4 className="text-2xl md:text-4xl font-semibold">
           Here is a{" "}
           <span className="underline decoration-darkGreen/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-justify">
+        <p className="text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed text-left md:text-left">
           {pageInfo?.backgroundInformation?.replace(/_/g, ' ').replace(/—/g, ' ')}
         </p>
+      </div>
       </div>
     </motion.div>
   );

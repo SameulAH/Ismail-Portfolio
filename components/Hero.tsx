@@ -25,7 +25,7 @@ export default function Hero({ pageInfo }: Props) {
   });
 
   return (
-    <div className="min-h-screen md:h-screen flex flex-col space-y-6 sm:space-y-8 items-center justify-center text-center overflow-hidden px-4">
+    <div className="min-h-[70vh] md:min-h-[75vh] py-16 flex flex-col space-y-4 sm:space-y-6 items-center justify-center text-center overflow-hidden px-4">
       <BackgroundCircles />
 
       <img
@@ -43,7 +43,7 @@ export default function Hero({ pageInfo }: Props) {
           {mounted && <Cursor cursorColor="#68B2A0" />}
         </h1>
 
-        <div className="pt-5">
+        <div className="pt-5 flex flex-wrap justify-center gap-3 sm:gap-4">
           <Link href="#about">
             <button className="heroButton">About</button>
           </Link>

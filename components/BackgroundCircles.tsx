@@ -20,23 +20,23 @@ export default function BackgroundCircles({}: Props) {
       className="relative flex justify-center items-center"
     >
       <div
-        className="absolute border border-grayColor opacity-30 rounded-full h-[200px] w-[200px] mt-64 md:mt:52 
+        className="absolute border border-grayColor opacity-30 rounded-full h-[140px] w-[140px] mt-48 md:mt-32 
             animate-ping"
       />
       <div
-        className="absolute border border-grayColor opacity-30 rounded-full h-[300px] w-[300px] mt-64 md:mt:52 
+        className="absolute border border-grayColor opacity-30 rounded-full h-[210px] w-[210px] mt-48 md:mt-32 
             animate-ping"
       />
       <div
-        className="absolute border border-grayColor  opacity-30 rounded-full h-[500px] w-[500px] mt-64 md:mt:52 
+        className="absolute border border-grayColor  opacity-30 rounded-full h-[350px] w-[350px] mt-48 md:mt-32 
             animate-ping"
       />
       <div
-        className="absolute border border-darkGreen opacity-20 h-[510px] w-[510px] md:h-[650px] md:w-[650px] 
-            animate-pulse mt-64 md:mt:52 rounded-full"
+        className="absolute border border-darkGreen opacity-20 h-[357px] w-[357px] md:h-[455px] md:w-[455px] 
+            animate-pulse mt-48 md:mt-32 rounded-full"
       />
       <div
-        className="absolute border border-grayColor opacity-30 rounded-full h-[800px] w-[800px] mt-64 md:mt:52 
+        className="absolute border border-grayColor opacity-30 rounded-full h-[560px] w-[560px] mt-48 md:mt-32 
             animate-ping"
       />
     </motion.div>

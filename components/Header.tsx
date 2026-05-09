@@ -18,7 +18,7 @@ export default function Header({ socials }: Props) {
   // Prevent hydration mismatch from react-social-icons
   if (!mounted) {
     return (
-      <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+      <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-50 xl:items-center backdrop-blur-md bg-white/50 border-b border-white/20 rounded-b-2xl shadow-sm">
         <div className="flex flex-row items-center h-12" />
         <div className="flex flex-row items-center text-gray-300 cursor-pointer h-12" />
       </header>
@@ -26,7 +26,7 @@ export default function Header({ socials }: Props) {
   }
 
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-50 xl:items-center backdrop-blur-md bg-white/50 border-b border-white/20 rounded-b-2xl shadow-sm transition-all duration-300 hover:bg-white/60">
       <motion.div
         initial={{
           x: -500,

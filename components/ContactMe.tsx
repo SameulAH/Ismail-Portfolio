@@ -11,7 +11,7 @@ type Inputs = {
   message: string;
 };
 
-export default function ContactMe({}: Props) {
+export default function ContactMe({ }: Props) {
   const { register, handleSubmit, reset } = useForm<Inputs>();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
@@ -45,13 +45,14 @@ export default function ContactMe({}: Props) {
   };
 
   return (
-    <div className="min-h-screen md:h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-6 md:px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-36 md:top-24 uppercase tracking-[0.25em] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-[20px] font-medium md:font-normal">
-          Contact
+    <div className="py-10 md:py-16 flex relative flex-col text-center md:text-left max-w-7xl px-4 sm:px-6 md:px-10 mx-auto items-center">
+      <h3 className="mb-6 md:mb-8 uppercase tracking-[0.25em] md:tracking-[20px] bg-clip-text text-transparent bg-gradient-to-r from-darkGreen to-lightGreen text-xl md:text-2xl font-bold text-center w-full">
+        Contact
       </h3>
       <div className="flex flex-col space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-6 2xl:space-y-10">
         <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center">
-          Let&apos;s build something amazing together.{" "}
+          Let&apos;s build something amazing together.
+          <br />
           <span className="decoration-darkGreen/50 underline">Get in touch.</span>
         </h4>
 
@@ -72,36 +73,36 @@ export default function ContactMe({}: Props) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-full max-w-sm md:w-fit mx-auto"
+          className="flex flex-col space-y-3 w-full max-w-3xl mx-auto px-4"
         >
-          <div className="md:flex md:space-x-2 space-y-2 md:space-y-0 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <input
               {...register("name")}
               placeholder="Name"
-              className="contactInput w-80 md:w-auto"
+              className="contactInput w-full"
               type="text"
-            />{" "}
+            />
             <input
               {...register("email")}
               placeholder="Email"
-              className="contactInput w-80 md:w-auto"
+              className="contactInput w-full"
               type="email"
             />
           </div>
           <input
             {...register("subject")}
             placeholder="Subject"
-            className="contactInput "
+            className="contactInput w-full"
             type="text"
           />
           <textarea
             {...register("message")}
             placeholder="Message"
-            className="contactInput"
+            className="contactInput w-full min-h-[150px]"
           />
-          <button 
+          <button
             disabled={status === 'sending'}
-            className="bg-lightGreen py-3 md:py-5 px-10 rounded-lg text-white font-bold text-lg hover:bg-darkGreen transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-darkGreen py-3 md:py-5 px-10 rounded-xl text-white font-bold text-lg hover:bg-lightGreen transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === 'sending' ? 'Sending...' : 'Submit'}
           </button>
