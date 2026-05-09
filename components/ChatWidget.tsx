@@ -90,7 +90,7 @@ export default function ChatWidget() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+              className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-white shadow-xl ring-2 ring-darkGreen/20 bg-white flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
               aria-label="Open chat with Hero"
             >
               {/* Halo/indicator kept for mobile + desktop */}
@@ -118,7 +118,7 @@ export default function ChatWidget() {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="w-16 h-16 rounded-full border-2 border-darkGreen bg-slate-900 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
+            className="w-16 h-16 rounded-full border-2 border-white shadow-xl ring-2 ring-darkGreen/20 bg-white flex items-center justify-center overflow-hidden hover:scale-105 transition-transform"
             aria-label="Close chat"
           >
             <img
@@ -136,10 +136,10 @@ export default function ChatWidget() {
           {/* Mobile backdrop overlay */}
           <div className="fixed inset-0 bg-white sm:hidden z-[9997]" />
           
-          <div className="fixed inset-0 sm:inset-auto sm:bottom-20 sm:right-4 z-[9998] w-full sm:w-80 h-full sm:h-auto sm:max-h-[70vh] bg-slate-950 text-slate-100 shadow-2xl sm:rounded-xl border-0 sm:border border-slate-700 flex flex-col">
+          <div className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[9998] w-full sm:w-[380px] h-full sm:h-auto sm:max-h-[75vh] bg-white/80 backdrop-blur-xl text-slate-800 shadow-2xl sm:rounded-2xl border-0 sm:border border-white/60 flex flex-col overflow-hidden">
             {/* Header */}
-            <div className="p-4 sm:p-3 border-b border-slate-700 flex items-center gap-3 safe-area-top">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-darkGreen flex-shrink-0">
+            <div className="p-5 sm:p-4 border-b border-gray-200/60 bg-white/40 flex items-center gap-3 safe-area-top">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-gray-200 shadow-sm flex-shrink-0">
               <img
                 src="/images/ismail.jpeg"
                 alt="Ismail Ahouari"
@@ -147,14 +147,14 @@ export default function ChatWidget() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-lightGreen">Ismail</span>
-              <span className="text-[11px] text-slate-400">
+              <span className="text-sm font-semibold text-slate-800">Ismail</span>
+              <span className="text-[11px] text-slate-500">
                 Ask me about my experience & projects
               </span>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="ml-auto text-slate-400 hover:text-white transition-colors p-2"
+              className="ml-auto text-slate-400 hover:text-slate-700 hover:bg-gray-100/50 rounded-full transition-all p-2"
               aria-label="Close chat"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -164,9 +164,9 @@ export default function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 text-sm space-y-3">
+          <div className="flex-1 overflow-y-auto p-4 text-sm space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
             {messages.length === 0 && (
-              <div className="text-xs text-slate-400 bg-slate-900 rounded-lg p-3">
+              <div className="text-sm text-slate-600 bg-white shadow-sm border border-gray-100 rounded-2xl p-4 leading-relaxed text-center mx-2">
                 👋 Hi, I&apos;m Hero in AI form! I&apos;m Ismail Ahouari&apos;s digital twin. Ask me about my background, thesis research on Split Learning, or current projects in agentic LLM infrastructure.
               </div>
             )}
@@ -182,8 +182,8 @@ export default function ChatWidget() {
                 <div
                   className={
                     m.role === 'user'
-                      ? 'inline-block bg-darkGreen text-white rounded-lg px-3 py-2 max-w-[85%] text-left'
-                      : 'inline-block bg-slate-800 rounded-lg px-3 py-2 max-w-[85%]'
+                      ? 'inline-block bg-darkGreen/10 text-darkGreen border border-darkGreen/20 shadow-sm rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%] text-left text-[15px] leading-relaxed'
+                      : 'inline-block bg-white shadow-sm border border-gray-100 text-slate-700 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%] text-[15px] leading-relaxed'
                   }
                 >
                   {m.content}
@@ -192,11 +192,11 @@ export default function ChatWidget() {
             ))}
             {loading && (
               <div className="text-left">
-                <div className="inline-block bg-slate-800 rounded-lg px-3 py-2">
-                  <div className="flex items-center gap-1">
-                    <div className="w-2 h-2 bg-lightGreen rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-lightGreen rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-lightGreen rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                <div className="inline-block bg-white shadow-sm border border-gray-100 rounded-2xl rounded-tl-sm px-4 py-3">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                   </div>
                 </div>
               </div>
@@ -205,9 +205,9 @@ export default function ChatWidget() {
           </div>
 
           {/* Input - Larger touch targets on mobile with safe area padding */}
-          <div className="p-4 pb-8 sm:p-3 sm:pb-3 border-t border-slate-700 flex gap-2 safe-area-bottom">
+          <div className="p-4 pb-8 sm:p-4 sm:pb-4 border-t border-gray-200/60 bg-white/40 flex gap-2 safe-area-bottom items-center">
             <input
-              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 sm:px-3 sm:py-2 text-base sm:text-sm outline-none focus:border-darkGreen transition-colors"
+              className="flex-1 bg-white/80 border border-gray-200 rounded-xl px-4 py-3 sm:py-2.5 text-base sm:text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-darkGreen focus:ring-2 focus:ring-lightGreen/20 transition-all shadow-sm"
               placeholder="Ask me something..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -217,7 +217,7 @@ export default function ChatWidget() {
             <button
               onClick={sendMessage}
               disabled={loading || !input.trim()}
-              className="px-5 py-3 sm:px-4 sm:py-2 text-base sm:text-sm bg-darkGreen text-white rounded-lg hover:bg-lightGreen transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              className="px-5 py-3 sm:px-5 sm:py-2.5 text-base sm:text-sm bg-darkGreen text-white rounded-xl hover:bg-lightGreen hover:scale-105 hover:shadow-md transition-all duration-300 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed font-semibold shadow-sm"
             >
               Send
             </button>
