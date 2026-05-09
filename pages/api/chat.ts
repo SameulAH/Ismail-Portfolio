@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getVectorStore, Document, SearchResult } from '../../lib/vectorStore';
-import { PushoverNotifier } from '../../lib/rag/pushNotifier';
+import { NtfyNotifier } from '../../lib/rag/ntfyNotifier';
 import knowledgeBaseData from '../../data/knowledge-base.json';
 
 type Role = 'user' | 'assistant' | 'system';
@@ -11,10 +11,11 @@ type Message = {
 };
 
 const pushNotifier =
-  process.env.PUSHOVER_TOKEN && process.env.PUSHOVER_USER_KEY
-    ? new PushoverNotifier({
-        token: process.env.PUSHOVER_TOKEN,
-        userKey: process.env.PUSHOVER_USER_KEY,
+  process.env.NTFY_TOPIC
+    ? new NtfyNotifier({
+        topic: process.env.NTFY_TOPIC,
+        token: process.env.NTFY_TOKEN,
+        baseUrl: process.env.NTFY_URL,
         logger: console,
       })
     : null;
