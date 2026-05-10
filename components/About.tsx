@@ -64,11 +64,6 @@ export default function About({ pageInfo }: Props) {
           </div>
 
           <p>
-            <span className="font-medium text-slate-700">Tech stack: </span>
-            Python · PyTorch · FastAPI · Docker · Cloud-native tooling
-          </p>
-
-          <p>
             I enjoy turning advanced AI concepts into reliable, high-performance
             applications with clean architecture and real-world impact.
           </p>
