@@ -43,13 +43,36 @@ export default function About({ pageInfo }: Props) {
       </motion.div>
       <div className="space-y-6 md:space-y-8 px-0 md:px-4 max-w-2xl flex-1 text-center md:text-left">
         <h4 className="text-2xl md:text-4xl font-semibold">
-          Here is a{" "}
-          <span className="underline decoration-darkGreen/50">little</span>{" "}
-          background
+          AI Engineer & Data Scientist{" "}
+          <span className="underline decoration-darkGreen/50">building scalable</span>{" "}
+          LLM systems
         </h4>
-        <p className="text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed text-left md:text-left">
-          {pageInfo?.backgroundInformation?.replace(/_/g, ' ').replace(/—/g, ' ')}
-        </p>
+        <div className="text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed text-left md:text-left space-y-4">
+          <p>
+            Master&apos;s student in Data Science at the University of Milano-Bicocca
+            with a focus on NLP, distributed learning, and production AI systems.
+          </p>
+
+          <div>
+            <p className="font-medium text-slate-700 mb-1">Specialized in:</p>
+            <ul className="list-disc list-inside space-y-0.5 text-slate-600">
+              <li>LLM infrastructure</li>
+              <li>MLOps pipelines</li>
+              <li>Backend AI engineering</li>
+              <li>Scalable deployment workflows</li>
+            </ul>
+          </div>
+
+          <p>
+            <span className="font-medium text-slate-700">Tech stack: </span>
+            Python · PyTorch · FastAPI · Docker · Cloud-native tooling
+          </p>
+
+          <p>
+            I enjoy turning advanced AI concepts into reliable, high-performance
+            applications with clean architecture and real-world impact.
+          </p>
+        </div>
       </div>
       </div>
     </motion.div>
