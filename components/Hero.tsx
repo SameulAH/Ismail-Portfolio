@@ -56,6 +56,13 @@ export default function Hero({ pageInfo }: Props) {
           <Link href="#projects">
             <button className="heroButton">Projects</button>
           </Link>
+          <a
+            href="https://calendly.com/ismailahouari123/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="heroButton">Schedule a Call</button>
+          </a>
         </div>
       </div>
     </div>
