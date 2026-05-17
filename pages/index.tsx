@@ -2,15 +2,17 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import { Experience, PageInfo, Skill, Project, Social } from "../typings";
+import { BlogPost, Experience, PageInfo, Skill, Project, Social } from "../typings";
 import About from "../components/About";
 import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import Blog from "../components/Blog";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import dynamic from "next/dynamic";
+import { getAllPosts } from "../lib/markdown";
 const ChatWidget = dynamic(() => import("../components/ChatWidget"), { ssr: false, loading: () => <div>Loading chat...</div> });
 
 type Props = {
@@ -19,9 +21,10 @@ type Props = {
   skills: Skill[];
   projects: Project[];
   socials: Social[];
+  posts: BlogPost[];
 };
 
-const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills, socials, posts }: Props) => {
   return (
     <div
       className="bg-gradient-to-br from-[#F8F8F8] via-white to-[#e8f1ef] text-slate-800 min-h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-darkGreen/80 selection:bg-lightGreen/30 selection:text-darkGreen"
@@ -75,6 +78,11 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       {/* Projects */}
       <section id="projects">
         <Projects projects={projects} />
+      </section>
+
+      {/* Blog */}
+      <section id="blog">
+        <Blog posts={posts} />
       </section>
 
       {/* Contact */}
@@ -285,6 +293,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
+      posts: getAllPosts(),
     },
   };
 };

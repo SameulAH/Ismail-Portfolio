@@ -52,3 +52,13 @@ export interface Social {
     title: string;
     url: string;
 }
+
+export interface BlogPost {
+    slug: string;
+    title: string;
+    date: string;
+    readTime: string;
+    excerpt: string;
+    tags: string[];
+    coverImage: string;
+}
